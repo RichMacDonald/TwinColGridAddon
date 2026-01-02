@@ -9,6 +9,8 @@
 <!--	<url>https://www.flowingcode.com/en/open-source/</url>-->
     <url>https://github.com/RichMacDonald/TwinColGridAddon</url>
 
+<!--    Intended to be utterly temporary-->
+
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>

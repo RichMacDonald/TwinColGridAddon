@@ -1,3 +1,22 @@
+/*-
+ * #%L
+ * TwinColGrid add-on
+ * %%
+ * Copyright (C) 2017 - 2025 Flowing Code
+ * %%
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * #L%
+ */
 package com.flowingcode.vaadin.addons.twincolgrid;
 
 import com.vaadin.flow.component.ItemLabelGenerator;
@@ -11,7 +30,18 @@ import java.util.Comparator;
 import java.util.function.Supplier;
 import lombok.NonNull;
 
-/** Implementation of {@code TwinColGrid} with deprecated methods from version 2.9.0. */
+/**
+ * Implementation of {@code TwinColGrid} with deprecated methods from version 2.9.0.
+ * <p>
+ * This class was introduced in version 3.0.0 to maintain backward compatibility with the API from
+ * the previous major version. It facilitates migration by hosting methods that were removed or
+ * changed in the primary implementation.
+ * </p>
+ *
+ * @deprecated As of 3.0.0, this class exists only for migration purposes. New projects should use
+ *             {@code TwinColGrid} directly.
+ * @param <T> the type of items in the grid
+ */
 @SuppressWarnings("serial")
 @Deprecated
 public class LegacyTwinColGrid<T> extends TwinColGrid<T> {
@@ -71,7 +101,7 @@ public class LegacyTwinColGrid<T> extends TwinColGrid<T> {
    * Constructs a new empty TwinColGrid with caption
    *
    * @param caption the component caption
-   * @deprecated Use {@link TwinColGrid#TwinColGrid()} and {{@link #setCaption(String)}
+   * @deprecated Use {@link TwinColGrid#TwinColGrid()} and {@link #setCaption(String)}
    */
   @Deprecated
   @SuppressWarnings("unchecked")
@@ -148,7 +178,7 @@ public class LegacyTwinColGrid<T> extends TwinColGrid<T> {
    * @param caption the caption to set, can be {@code null}
    * @param options the options, cannot be {@code null}
    * @deprecated Use {@link TwinColGrid#TwinColGrid(Collection)} and
-   *             {{@link TwinColGrid#setCaption(String)}
+   *             {@link TwinColGrid#setCaption(String)}
    */
   @Deprecated
   @SuppressWarnings("unchecked")

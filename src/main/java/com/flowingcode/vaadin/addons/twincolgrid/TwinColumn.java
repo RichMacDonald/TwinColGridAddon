@@ -1,6 +1,26 @@
+/*-
+ * #%L
+ * TwinColGrid add-on
+ * %%
+ * Copyright (C) 2017 - 2025 Flowing Code
+ * %%
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * #L%
+ */
 package com.flowingcode.vaadin.addons.twincolgrid;
 
 import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.Grid.Column;
 import com.vaadin.flow.component.grid.SortOrderProvider;
 import com.vaadin.flow.data.provider.QuerySortOrder;
@@ -221,17 +241,21 @@ public class TwinColumn<T> {
   }
 
   /**
-   * Sets the function that is used for generating CSS class names for cells in both columns.
+   * Sets the function that is used for generating CSS part names for cells in both columns.
+   * Returning {@code null} from the generator results in no custom part name being set. Multiple
+   * part names can be returned from the generator as space-separated.
+   * <p>
+   * If {@link Grid#setPartNameGenerator(SerializableFunction)} is used together with this method,
+   * resulting part names from both methods will be effective.
    *
-   * @see Column#setClassNameGenerator(SerializableFunction)
-   *
-   * @param classNameGenerator the class name generator to set, not {@code null}
+   * @param partNameGenerator the part name generator to set, not {@code null}
    * @return this instance, for method chaining
-   * @throws NullPointerException if {@code classNameGenerator} is {@code null}
+   * @throws NullPointerException if {@code partNameGenerator} is {@code null}
+   * @see Column#setPartNameGenerator(SerializableFunction)
    */
-  public TwinColumn<T> setClassNameGenerator(SerializableFunction<T, String> classNameGenerator) {
-    availableColumn.setClassNameGenerator(classNameGenerator);
-    selectionColumn.setClassNameGenerator(classNameGenerator);
+  public TwinColumn<T> setPartNameGenerator(SerializableFunction<T, String> partNameGenerator) {
+    availableColumn.setPartNameGenerator(partNameGenerator);
+    selectionColumn.setPartNameGenerator(partNameGenerator);
     return this;
   }
 
